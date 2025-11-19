@@ -10,11 +10,12 @@ permissions:
   actions: read
   contents: read
 
+env:
+  NX_NO_CLOUD: 'true'
+
 jobs:
   main:
     runs-on: ubuntu-latest
-    env:
-      NX_NO_CLOUD: 'true'
     steps:
       - uses: actions/checkout@v4
         with:
