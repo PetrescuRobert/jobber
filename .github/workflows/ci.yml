@@ -13,6 +13,8 @@ permissions:
 jobs:
   main:
     runs-on: ubuntu-latest
+    env:
+      NX_NO_CLOUD: 'true'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,5 +40,4 @@ jobs:
       - run: npx nx run-many -t lint test build
       # Nx Cloud recommends fixes for failures to help you get CI green faster. Learn more: https://nx.dev/ci/features/self-healing-ci
       - run: npx nx fix-ci
-        env: NX_NO_CLOUD=true
         if: always()
